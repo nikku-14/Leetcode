@@ -1,3 +1,4 @@
+#longerCode_sameApproach
 class Solution:
     def minMaxGame(self, nums: List[int]) -> int:
         if len(nums)==1:
@@ -11,3 +12,8 @@ class Solution:
                     newNums.append(max(nums[2 * i], nums[2 * i + 1]))
             nums=newNums
             return self.minMaxGame(nums)
+
+#shorterCode_sameApproach
+class Solution:
+    def minMaxGame(self, nums: List[int]) -> int:
+        return nums[0] if len(nums) == 1 else self.minMaxGame([max(nums[2 * i], nums[2 * i + 1]) if i & 1 else min(nums[2 * i], nums[2 * i + 1]) for i in range(len(nums)//2)])
