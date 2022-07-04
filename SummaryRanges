@@ -1,0 +1,18 @@
+#complexity-O(n)
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        new1=list()
+        result=list()
+        for i in range(len(nums)):
+            new1.append(nums[i])
+            if i+1<len(nums) and nums[i+1]-nums[i]==1:
+                continue
+
+            elif len(new1)==1:
+                result.append(str(new1[0]))
+                new1=[]
+            else:
+                str1=str(new1[0])+'->'+str(new1[-1])
+                result.append(str1)
+                new1=[]
+        return result
