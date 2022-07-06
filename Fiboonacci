@@ -1,0 +1,6 @@
+class Solution:
+    def fib(self, n: int) -> int:
+        l1=[0,1]
+        for i in range(0,n):
+            l1.append(l1[-1]+l1[-2])
+        return l1[n]
